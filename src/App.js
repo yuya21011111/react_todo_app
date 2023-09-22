@@ -10,7 +10,7 @@ function App() {
     <div className="body">
      <Title />
      <Input todoList={todoList} settodoList={settodoList} />
-     <TodoList />
+     <TodoList todoList={todoList} settodoList={settodoList} />
     </div>
   );
 }

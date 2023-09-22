@@ -1,15 +1,21 @@
 import { useRef } from "react"
 const Input = ({todoList,settodoList}) => {
-     const ref = useRef('')
+     const ref = useRef()
     const handleSubmit = e => {
         e.preventDefault()
-       
+       if((ref.current.value ?? '').trim() !== ''){
         settodoList([
             ...todoList,
             {
-                text: ref.current.value
+                id: todoList.length,
+                text: ref.current.value,
+                completed: false
             }
         ])
+        ref.current.value　 = ""
+       }else {
+        return
+       }
     }
     console.log(todoList)
     return(<>
